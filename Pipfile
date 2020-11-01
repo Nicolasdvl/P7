@@ -5,13 +5,15 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
-flake = "*"
 black = "*"
 python-dotenv = "*"
+pydocstyle = "*"
+flake8 = "*"
+mypy = "*"
 
 [packages]
-flask = "*"
 requests = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.7"
