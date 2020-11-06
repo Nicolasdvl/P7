@@ -18,9 +18,17 @@
         <p> Pourquoi utiliser la technologie quand tu peux demander à GrandPy ?</p>
     </div>
     <div id='body'>
-        <form method="dialog" id='chat_input'>
-            <input type="text" id="entry" required>
+        <div id="chat">
+            {% for message in messages %}
+            <div id="message">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <form action="{{ url_for('index') }}" method="POST" id="chat_input">
+            <input type="text" name="message" id="message" required>
             <input type="submit" value="Envoyer">
+
     </div>
     <div id='footer'>
         <p>Ceci est un footer</p>
