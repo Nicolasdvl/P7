@@ -7,7 +7,7 @@ class MockResponse(object):
     """Generate fake response."""
 
     def json(self):
-        """Fake json resposne."""
+        """Fake json response."""
         return {
             "query": {
                 "search": [{"title": "found", "pageid": 123456}],
