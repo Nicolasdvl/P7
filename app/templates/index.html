@@ -4,35 +4,42 @@
 
 <head>
     <meta charset="utf-8">
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUe4GUEx468RoVYfasF_KO6Q_Zh0-ZiBk&callback=initMap">
+        </script>
+    <link href="/static/style.css" rel="stylesheet">
+
+
 
     <title>GrandPy Bot</title>
 
 </head>
 
 <body>
-    <div id='header'>
-        <h1>GrandPy Bot</h1>
-        <div id='logo'>
-            <img src='' alt='Ceci est un logo'>
-        </div>
-        <p> Pourquoi utiliser la technologie quand tu peux demander à GrandPy ?</p>
-    </div>
-    <div id='body'>
-        <div id="chat">
-            {% for message in messages %}
-            <div id="message">
-                <p>{{ message }}</p>
+    <div id='container'>
+        <div id='header'>
+            <h1>GrandPy Bot</h1>
+            <div id='logo'>
+                <img src='' alt='Ceci est un logo'>
             </div>
-            {% endfor %}
+            <p> Pourquoi utiliser la technologie quand tu peux demander à GrandPy ?</p>
         </div>
-        <form action="{{ url_for('index') }}" method="POST" id="chat_input">
-            <input type="text" name="message" id="message" required>
-            <input type="submit" value="Envoyer">
 
+        <div id="chat">
+        </div>
+        <form onsubmit="submitMessage()" name="sendMessage" action="{{ url_for('index') }}" method="POST"
+            id="chat_input">
+            <input type="text" name="message_submit" id="message_submit" required>
+            <input type="submit" id="submit_button" value="Envoyer"></form>
+        <div id='footer'>
+            <p>Ceci est un footer</p>
+        </div>
     </div>
-    <div id='footer'>
-        <p>Ceci est un footer</p>
-    </div>
+
+
+
+
+    <script src="static/script.js"></script>
 </body>
 
 </html>

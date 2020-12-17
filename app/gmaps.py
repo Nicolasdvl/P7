@@ -15,6 +15,7 @@ class Gmaps_requests:
             "key": self.key,
             "inputtype": "textquery",
             "fields": "formatted_address,geometry",
+            "language": "fr",
         }
 
     def search_place(self, wanted: str) -> str:
@@ -26,8 +27,3 @@ class Gmaps_requests:
         )
         data = r.json()
         return data
-
-
-gmaps_requests = Gmaps_requests()
-result = gmaps_requests.search_place("Open Classrooms")
-print(result)

@@ -6,7 +6,7 @@ class Cleaner:
 
     def __init__(self):
         """Initialise."""
-        self.read = json.load(open("stopwords.json"))
+        self.read = json.load(open("app/stopwords.json"))
 
     def stop_word(self, sentence: str) -> str:
         """Remove some word from a sentence given."""

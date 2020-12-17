@@ -1,0 +1,81 @@
+
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+#header {
+    grid-area: header;
+    height: 100%;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns : 2% 96% 2%;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas: 
+    " . header ."
+    " . chat ."
+    " . input ."
+    " . footer .";
+
+}
+#chat {
+    grid-area: chat;
+    height: 100%;
+    overflow: auto;
+    background: rgba(200, 200, 200, 0.4);
+}
+
+#message {
+    border-radius: 12px;
+    background: rgba(86, 255, 185, 0.2);
+    float: left;
+    margin: 1%;
+    padding: 1%;
+    min-width: 25%;
+    max-width : 90%;
+    box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+#answer {
+    border-radius: 12px;
+    background: rgba(86, 187, 255, 0.2);
+    float: right;
+    margin: 1%;
+    padding: 1%;
+    min-width: 25%;
+    max-width : 90%;
+    box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+#map {
+    max-width: 90%;
+    max-height: 250px;
+    margin: 1%;
+    height: 100%;
+    width : 100%;
+    float: right;
+}
+
+#chat_input {
+    background: rgba(200, 200, 200, 0.8);
+    grid-area: input;
+    width: 100%;
+}
+#message_submit{
+    width: 88%;
+}
+#submit_button{
+    float: right;
+    width: 10%;
+}
+#footer {
+    grid-area: footer;
+    height: 100%;
+}

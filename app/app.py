@@ -1,18 +1,29 @@
-from flask import render_template, Flask, redirect, request, url_for
+from flask import (
+    render_template,
+    Flask,
+    request,
+    url_for,
+    jsonify,
+    make_response,
+)
+from bot import Bot
 
 app = Flask(__name__)
+bot = Bot()
 
-messages = []
 
-
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
-    if request.method == "POST":
-        message = request.form.get("message")
-        messages.append(message)
-        return redirect(url_for("index"))
-    return render_template("index.html", messages=messages)
+    return render_template("index.html")
+
+
+@app.route("/handle_message", methods=["POST"])
+def save_message():
+    data = request.json
+    result = bot.is_it_a_place(data["message"])
+    response = make_response(jsonify(result), 200)
+    return response
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

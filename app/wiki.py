@@ -28,11 +28,12 @@ class Wiki_requests:
         params = {
             "action": "query",
             "prop": "extracts",
-            "exsentences": "15",
+            "exsentences": "5",
             "exlimit": "1",
             "titles": page_title,
             "explaintext": "1",
             "formatversion": "2",
+            "format": "json",
         }
         response = requests.get(self.url, params)
         data = response.json()
