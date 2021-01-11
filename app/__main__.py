@@ -6,7 +6,7 @@ from flask import (
     jsonify,
     make_response,
 )
-from bot import Bot
+from app.bot import Bot
 
 app = Flask(__name__)
 bot = Bot()

@@ -8,17 +8,18 @@ class Wiki_requests:
         """Initialise."""
         self.url = "https://fr.wikipedia.org/w/api.php"
 
-    def search_page(self, wanted: str) -> str:
+    def search_page(self, coord: str) -> str:
         """Return a title of a existante wiki page."""
         params = {
             "action": "query",
             "format": "json",
-            "list": "search",
-            "srsearch": wanted,
+            "list": "geosearch",
+            "gsradius": "10000",
+            "gscoord": coord,
         }
         response = requests.get(self.url, params)
         data = response.json()
-        page_title = data["query"]["search"][0].get("title")
+        page_title = data["query"]["geosearch"][0].get("title")
         if page_title is None:
             print("page not found")
         return page_title

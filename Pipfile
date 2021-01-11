@@ -15,6 +15,7 @@ mypy = "*"
 requests = "*"
 flake8 = "*"
 gunicorn = "*"
+waitress = "*"
 
 [requires]
 python_version = "3.7"

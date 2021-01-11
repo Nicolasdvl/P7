@@ -1,6 +1,6 @@
-from cleaner import Cleaner
-from wiki import Wiki_requests
-from gmaps import Gmaps_requests
+from app.cleaner import Cleaner
+from app.wiki import Wiki_requests
+from app.gmaps import Gmaps_requests
 
 
 cleaner = Cleaner()
@@ -27,7 +27,8 @@ class Bot:
         else:
             reply["data"] = True
             reply["map"] = self.formate_map(gmaps_response)
-            reply["wiki"] = self.wiki_answer(cleaned)
+            coord = str(reply["map"]["lat"]) + "|" + str(reply["map"]["lng"])
+            reply["wiki"] = self.wiki_answer(coord)
             print(reply)
 
         return reply
