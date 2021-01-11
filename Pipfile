@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 black = "*"
-python-dotenv = "*"
 pydocstyle = "*"
 flake8 = "*"
 mypy = "*"
@@ -17,6 +16,7 @@ flake8 = "*"
 gunicorn = "*"
 waitress = "*"
 flask = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
