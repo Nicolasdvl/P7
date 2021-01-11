@@ -8,7 +8,7 @@ from flask import (
 )
 from app.bot import Bot
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates")
 bot = Bot()
 
 
