@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUe4GUEx468RoVYfasF_KO6Q_Zh0-ZiBk&callback=initMap">
-        </script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUe4GUEx468RoVYfasF_KO6Q_Zh0-ZiBk">
+    </script>
     <link href="/static/style.css" rel="stylesheet">
 
 
@@ -18,11 +17,13 @@
 <body>
     <div id='container'>
         <div id='header'>
-            <h1>GrandPy Bot</h1>
             <div id='logo'>
-                <img src='' alt='Ceci est un logo'>
+                <img src="/static/GP_logo.png" alt='Ceci est un logo'>
             </div>
-            <p> Pourquoi utiliser la technologie quand tu peux demander à GrandPy ?</p>
+            <div id='hero'>
+                <h1>GrandPy Bot</h1>
+                <p> Pourquoi utiliser la technologie quand tu peux demander à GrandPy ?</p>
+            </div>
         </div>
 
         <div id="chat">
@@ -30,9 +31,14 @@
         <form onsubmit="submitMessage()" name="sendMessage" action="{{ url_for('index') }}" method="POST"
             id="chat_input">
             <input type="text" name="message_submit" id="message_submit" required>
-            <input type="submit" id="submit_button" value="Envoyer"></form>
+            <input type="submit" id="submit_button" value="Envoyer">
+        </form>
         <div id='footer'>
-            <p>Ceci est un footer</p>
+            <div id='contact'>
+                <img src="/static/github_icon.png">
+                <p><a href="https://github.com/Nicolasdvl/P7">/Nicolasdvl</a></p>
+            </div>
+
         </div>
     </div>
 

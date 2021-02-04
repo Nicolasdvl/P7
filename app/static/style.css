@@ -1,28 +1,51 @@
-
-
-html,
 body {
-    height: 100vh;
-    width: 100vw;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(230, 230, 230);
 }
 #header {
+    display: grid;
+    grid-template-columns: 2% auto 2% 1fr 2%;
+    grid-template-areas: ". logo . hero .";
     grid-area: header;
     height: 100%;
+    background: rgb(230, 230, 230);
+    box-shadow: 0px 1px rgb(65, 57, 77);
+}
+
+#hero {
+    grid-area: hero;
+    align-self: center;
+    color: rgb(65, 57, 77);
+    font-size: 36px;
+}
+#hero>h1 {
+    margin: 0;
+    font-size: 56px;
+}
+
+#logo{
+    grid-area: logo
 }
 
 #container {
+    
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns : 2% 96% 2%;
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-columns : 2% auto 2%;
+    grid-template-rows: auto 2% 1fr auto 2% auto;
     grid-template-areas: 
-    " . header ."
+    " header header header"
+    " . . ."
     " . chat ."
     " . input ."
-    " . footer .";
+    " . . ."
+    " footer footer footer";
 
 }
 #chat {
@@ -32,7 +55,7 @@ body {
     background: rgba(200, 200, 200, 0.4);
 }
 
-#message {
+.message {
     border-radius: 12px;
     background: rgba(86, 255, 185, 0.2);
     float: left;
@@ -43,7 +66,7 @@ body {
     box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
-#answer {
+.answer {
     border-radius: 12px;
     background: rgba(86, 187, 255, 0.2);
     float: right;
@@ -54,7 +77,7 @@ body {
     box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
-#map {
+.map {
     max-width: 90%;
     max-height: 250px;
     margin: 1%;
@@ -68,14 +91,93 @@ body {
     grid-area: input;
     width: 100%;
 }
-#message_submit{
-    width: 88%;
+
+#message_submit {
+    font-size: 30px;
+    width: 79%;
 }
 #submit_button{
     float: right;
-    width: 10%;
+    font-size: 30px;
+    width: 20%;
 }
 #footer {
+    display: grid;
+    grid-template-columns: 2% 1fr auto 2%;
+    grid-template-areas: ". . contact .";
+    box-shadow: 0px -1px rgb(65, 57, 77);
     grid-area: footer;
     height: 100%;
+    background: rgb(230, 230, 230);
+}
+#contact {
+    padding: 4px;
+    max-height: 32px;
+    grid-area: contact;
+    display: flex;
+}
+#contact>img{
+    height: 100%;
+}
+#contact>a {
+    outline: none;
+    text-decoration: none;
+}
+#contact>p {
+    padding-left: 4px;
+    align-self: center;
+}
+
+@media screen and (min-width: 480px) {
+    body {
+        font-size: 18px;
+    }
+    #hero {
+        font-size: 20px;
+    }
+    #hero>h1 {
+        font-size: 26px;
+    }
+    #footer{
+        font-size: 20px;
+    }
+    #logo>img{
+        width: 150px;
+    }
+    #message_submit{
+        width: 84%;
+        font-size: 18px;
+    }
+    #submit_button{
+        width: 15%;
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        font-size: 14px;
+    }
+    #hero {
+        font-size: 16px;
+    }
+    #hero>h1 {
+        font-size: 22px;
+    }
+    #footer{
+        font-size: 16px;
+    }
+    #logo>img{
+        width: 100px;
+    }
+    #message_submit{
+        width: 89%;
+        font-size: 14px;
+    }
+    #submit_button{
+        width: 10%;
+        font-size: 14px;
+    }
+    
 }

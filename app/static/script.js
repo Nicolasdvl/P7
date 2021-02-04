@@ -1,3 +1,5 @@
+var messageIndex = 0;
+
 onerror = errorHandler;
 function errorHandler(message, url, ligne) {
     out = "Erreur : " + message + "/n";
@@ -7,6 +9,7 @@ function errorHandler(message, url, ligne) {
 };
 
 function submitMessage() {
+    messageIndex++;
     var entry = document.getElementById("message_submit").value;
     event.preventDefault();
     event.stopImmediatePropagation()
@@ -23,7 +26,7 @@ function submitMessage() {
         .then(function (response) {
 
             response.json().then(function (data) {
-                console.log(data)
+                console.log("responsedufetch", data)
                 displayAnswer(data)
             })
         })
@@ -32,7 +35,8 @@ function submitMessage() {
 function displayMessage(entry) {
     let chat = document.getElementById("chat");
     let div = document.createElement('div');
-    div.id = "message";
+    div.classList.add("message");
+    div.id = `message-${messageIndex}`;
     div.innerHTML = entry;
     chat.append(div)
 }
@@ -43,30 +47,32 @@ function displayAnswer(data) {
     if (status) {
         let chat = document.getElementById("chat");
         let div = document.createElement('div');
-        div.id = "answer";
+        div.classList.add("answer");
+        div.id = `answer-${messageIndex}`;
         div.innerHTML = answer.wiki;
         chat.append(div);
         let map = document.createElement('div');
-        map.id = "map"
+        map.id = `map-${messageIndex}`;
+        map.classList.add("map");
         chat.append(map);
         setTimeout(() => {
-            initMap(answer.map.lat, answer.map.lng);
+            initMap(answer.map.lat, answer.map.lng, map.id);
         }, 1000);
 
 
     } else {
         let chat = document.getElementById("chat");
         let div = document.createElement('div');
-        div.className = "answer";
-        div.id = "answer";
+        div.classList.add("answer");
+        div.id = `answer-${messageIndex}`;
         div.innerHTML = answer.message;
         chat.append(div);
     }
 
 }
 
-function initMap(lat, lng) {
-    map = new google.maps.Map(document.getElementById("map"), {
+function initMap(lat, lng, id) {
+    map = new google.maps.Map(document.getElementById(id), {
         center: { lat: lat, lng: lng },
         zoom: 12,
     });
