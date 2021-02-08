@@ -10,7 +10,7 @@ class MockResponse(object):
         """Fake json response."""
         return {
             "query": {
-                "search": [{"title": "found", "pageid": 123456}],
+                "geosearch": [{"title": "found", "pageid": 123456}],
                 "pages": [
                     {
                         "title": "Lorem ipsum",
@@ -32,7 +32,7 @@ def test_search_page(monkeypatch):
         return MockResponse()
 
     monkeypatch.setattr(requests, "get", get_mock)
-    assert wiki.search_page("search") == ("found")
+    assert wiki.search_page("geosearch") == ("found")
 
 
 def test_get_resume(monkeypatch):

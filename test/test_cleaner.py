@@ -8,14 +8,14 @@ cleaner = Cleaner()
 @pytest.mark.parametrize(
     "test_input,expected",
     [
-        ("Je voudrais visiter la Tour Eiffel", "Tour Eiffel"),
+        ("Je voudrais visiter la Tour Eiffel", "voudrais visiter tour eiffel"),
         (
             "Je vous transmets une adresse : 123 rue Bidon, Ville",
-            "transmets adresse : 123 rue Bidon, Ville",
+            "transmets adresse : 123 rue bidon, ville",
         ),
         (
             "Salut que pouvez vous faire pour moi dans l'immédiat ?",
-            "Salut pouvez faire l'immédiat ?",
+            "pouvez faire l'immédiat ?",
         ),
     ],
 )
