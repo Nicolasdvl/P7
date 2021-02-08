@@ -11,6 +11,7 @@ class Cleaner:
     def stop_word(self, sentence: str) -> str:
         """Remove some word from a sentence given."""
         cleaned_words = []
+        sentence = sentence.lower()
         words = sentence.split()
         for word in words:
             if word not in self.stop_words:
