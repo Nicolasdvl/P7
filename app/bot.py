@@ -9,7 +9,10 @@ gmaps_requests = Gmaps_requests()
 
 
 class Bot:
+    """Contain methods to bot response."""
+
     def __init__(self):
+        """Initialise."""
         self.conversation = {}
         self.conversation["salutation"] = ["Bien le bonjour !", "Bonjour mon petit ! "]
         self.conversation["incompréhension"] = [
@@ -17,7 +20,8 @@ class Bot:
         ]
         self.conversation["introduce_wiki"] = ["Hmm... Je me rappel de ceci."]
 
-    def is_it_a_place(self, entry):
+    def is_it_a_place(self, entry: str) -> dict:
+        """Check if user entry allows to find a place."""
         reply = {}
         cleaned = cleaner.stop_word(entry)
         gmaps_response = gmaps_requests.search_place(cleaned)
@@ -33,12 +37,14 @@ class Bot:
 
         return reply
 
-    def wiki_answer(self, cleaned):
+    def wiki_answer(self, cleaned: str) -> str:
+        """Use wiki methods to return a response."""
         wiki_result = wiki_requests.search_page(cleaned)
         wiki_response = wiki_requests.get_resume(wiki_result)
         return wiki_response
 
-    def formate_map(self, gmaps_response):
+    def formate_map(self, gmaps_response: str) -> dict:
+        """Use gmaps methods to return a response."""
         reply = {}
         reply["address"] = gmaps_response["candidates"][0]["formatted_address"]
         reply["lat"] = gmaps_response["candidates"][0]["geometry"]["location"]["lat"]
