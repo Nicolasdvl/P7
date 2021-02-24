@@ -33,7 +33,6 @@ class Bot:
             reply["map"] = self.formate_map(gmaps_response)
             coord = str(reply["map"]["lat"]) + "|" + str(reply["map"]["lng"])
             reply["wiki"] = self.wiki_answer(coord)
-            print(reply)
 
         return reply
 
