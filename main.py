@@ -2,13 +2,14 @@ from flask import (
     render_template,
     Flask,
     request,
-    url_for,
     jsonify,
     make_response,
 )
 from app.bot import Bot
 
-app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
+app = Flask(
+    __name__, template_folder="app/templates", static_folder="app/static"
+)
 bot = Bot()
 
 

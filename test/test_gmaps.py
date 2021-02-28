@@ -11,8 +11,11 @@ class MockResponse(object):
         return {
             "candidates": [
                 {
-                    "formatted_address": "10 Quai de la Charente, 75019 Paris, France",
-                    "geometry": {"localisation": {"lat": 48.8975156, "lng": 2.3833993}},
+                    "formatted_address": "10 Quai de la Charente,"
+                    + " 75019 Paris, France",
+                    "geometry": {
+                        "localisation": {"lat": 48.8975156, "lng": 2.3833993}
+                    },
                 }
             ],
             "status": "OK",

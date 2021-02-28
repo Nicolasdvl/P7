@@ -22,7 +22,8 @@ class Gmaps_requests:
         """Return an adress and a localisation of a place."""
         self.params["input"] = wanted
         r = requests.get(
-            "https://maps.googleapis.com/maps/api/place/findplacefromtext/json",
+            "https://maps.googleapis.com/maps/api/"
+            + "place/findplacefromtext/json",
             self.params,
         )
         data = r.json()

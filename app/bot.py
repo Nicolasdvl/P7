@@ -14,7 +14,10 @@ class Bot:
     def __init__(self):
         """Initialise."""
         self.conversation = {}
-        self.conversation["salutation"] = ["Bien le bonjour !", "Bonjour mon petit ! "]
+        self.conversation["salutation"] = [
+            "Bien le bonjour !",
+            "Bonjour mon petit ! ",
+        ]
         self.conversation["incompréhension"] = [
             "Ton jargon m'est inconnu, tu peux reformuler ?"
         ]
@@ -46,6 +49,10 @@ class Bot:
         """Use gmaps methods to return a response."""
         reply = {}
         reply["address"] = gmaps_response["candidates"][0]["formatted_address"]
-        reply["lat"] = gmaps_response["candidates"][0]["geometry"]["location"]["lat"]
-        reply["lng"] = gmaps_response["candidates"][0]["geometry"]["location"]["lng"]
+        reply["lat"] = gmaps_response["candidates"][0]["geometry"]["location"][
+            "lat"
+        ]
+        reply["lng"] = gmaps_response["candidates"][0]["geometry"]["location"][
+            "lng"
+        ]
         return reply
