@@ -1,4 +1,3 @@
-import pytest
 import requests
 from ..app.wiki import Wiki_requests
 

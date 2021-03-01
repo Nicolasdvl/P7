@@ -1,4 +1,3 @@
-import pytest
 import requests
 from ..app.gmaps import Gmaps_requests
 
