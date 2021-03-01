@@ -8,15 +8,21 @@ cleaner = Cleaner()
 @pytest.mark.parametrize(
     "test_input,expected",
     [
-        ("Je voudrais visiter la Tour Eiffel", "voudrais visiter tour eiffel"),
+        (
+            "Je voudrais visiter la Tour Eiffel.",
+            "voudrais visiter tour eiffel",
+        ),
         (
             "Je vous transmets une adresse : 123 rue Bidon, Ville",
-            "transmets adresse : 123 rue bidon, ville",
+            "transmets adresse 123 rue bidon ville",
         ),
         (
             "Salut que pouvez vous faire pour moi dans l'immédiat ?",
-            "pouvez faire l'immédiat ?",
+            "pouvez faire immédiat",
         ),
+        ("Une  phrase   trop      espacé     .", "phrase espacé"),
+        ("     :)     ", ""),
+        ("$ some ? extra ;;symboLE !", "some extra symbole"),
     ],
 )
 def test_stop_word(test_input, expected):
