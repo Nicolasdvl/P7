@@ -14,10 +14,6 @@ class Bot:
     def __init__(self):
         """Initialise."""
         self.conversation = {}
-        self.conversation["salutation"] = [
-            "Bien le bonjour !",
-            "Bonjour mon petit ! ",
-        ]
         self.conversation["incompréhension"] = [
             "Ton jargon m'est inconnu, tu peux reformuler ?"
         ]
@@ -28,7 +24,7 @@ class Bot:
         reply = {}
         cleaned = cleaner.stop_word(entry)
         gmaps_response = gmaps_requests.search_place(cleaned)
-        if gmaps_response["status"] == "ZERO_RESULTS":
+        if gmaps_response["status"] == "ZERO_RESULTS" or cleaned == "":
             reply["data"] = False
             reply["message"] = self.conversation["incompréhension"]
         else:

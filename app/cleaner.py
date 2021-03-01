@@ -1,4 +1,5 @@
 import json
+import re
 
 
 class Cleaner:
@@ -9,9 +10,10 @@ class Cleaner:
         self.stop_words = json.load(open("app/stopwords.json"))
 
     def stop_word(self, sentence: str) -> str:
-        """Remove some word from a sentence given."""
+        """Normalize a sentence given."""
         cleaned_words = []
         sentence = sentence.lower()
+        sentence = re.sub(r"\W", " ", sentence)
         words = sentence.split()
         for word in words:
             if word not in self.stop_words:
